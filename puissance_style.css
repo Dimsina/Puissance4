@@ -1,0 +1,11 @@
+.plateau{
+	background-color: blue;
+	width: 300px;
+}
+tr td{
+	width: 100px;
+	height: 100px;
+	border: 3px solid Blue;
+	border-radius: 100%;
+	background-color: White;
+}
