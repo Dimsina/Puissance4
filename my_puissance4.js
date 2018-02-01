@@ -79,8 +79,8 @@ $.fn.my_puissance4 = function(options){
 				/*création du jeton + compteur */
 				var currentTurn = 0;
 				$('td').slice(0).val("true");
-				
 				$('td').click(function(){
+
 					if ($(this).val() == "true"){
 							/*recherche de position pour le jeton*/
 					
@@ -89,41 +89,52 @@ $.fn.my_puissance4 = function(options){
 						var split = $(this)[0].className.split(' '); /*récupération des coordonées des cases*/
 						var coord = split[0].split('-');
 						var col = coord[1];
+					
 						for ( var i = settings.columns; i >= 1; i--){
-							//console.log($('.' + i + '-' + col));
 							if (!$('.' + i + '-' + col).hasClass("chip")) {
-								console.log($("." + i + "-" + col));
+								
 								if (currentTurn%2 == 0){
-									$("." + i + "-" + col).addClass('chip').css({
-										backgroundColor : settings.Player1
+									var one = $("." + i + "-" + col).addClass('chip').css({
+										backgroundColor : settings.Player1,
+										"position": "relative",
+										"opacity": "0.35",
+										"bottom": "400px"
 									});
 								}
 								else {
-									$("." + i + "-" + col).addClass('chip').css({
-										backgroundColor : settings.Player2
-									});
+									var two = $("." + i + "-" + col).addClass('chip').css({
+										backgroundColor : settings.Player2,
+										"position": "relative",
+										"opacity": "0.35",
+										"bottom": "400px"
+									});  
 								}
 								currentTurn ++;
+													/* créer l'animation */
+								$(one).animate({top: '0px', opacity: 1});
+								$(two).animate({top: '0px', opacity: 1});
 								break;
 							};
+							var line = coord[0];
+							//numéro de la ligne, faire une boucle
+							for (var k = 1 ; k <= settings.rows; k++){
+								console.log($('.' + line + '-' + k)[0].style.backgroundColor);
+								/*console.log($('.' + line + '-' + k)[0].style.backgroundColor == settings.Player1);*/
+								if ($('.' + line + '-' + k)[0].style.backgroundColor == settings.Player1){
+										console.log($('.' + line + '-' + k));
+								}
+								if ($('.' + line + '-' + k).hasClass("chip")){
+									
+									}
 
-						};
-						
-					}
-				});
-				/*	
-					var elem = $("myAnimation");	
-					var id = setInterval(frame, 5);
-					function frame() {
-					if (x == 350) {
-						 clearInterval(id);
-					}else {
-						x++; 
-						elem.style.top = x + 'px'; 
-		  
+							}
+								
+							};
 						}
-					  }
-					  */
+					})
+				
+				/*ici nous sommes en dehors du click*/
+			
 			});
 	
 };
