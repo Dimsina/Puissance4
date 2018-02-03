@@ -1,6 +1,24 @@
+body {
+	background-image: url("img/sunset.jpg"); 
+}
+
 h1 {
+	color: LightGrey;
 	text-align: center;
-	border-bottom: 2px dashed Black;
+	border-bottom: 2px dashed LightGrey;
 	width: 30%;
 	margin-left: 35%;
+	padding-bottom: 1%;
+}
+
+span#rain{
+	font-style: italic !important;
+}
+
+.jc-bs3-container.container {
+	max-width: 400px !important;
+    text-align: center !important;
+    margin-left: 3% !important;
+    margin-right: -3% !important;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
 }
